@@ -1,4 +1,4 @@
-package com.example;
+package com.example.javaalgorithm;
 
 import java.util.*;
 import java.util.stream.Collectors;
