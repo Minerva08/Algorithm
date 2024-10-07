@@ -1,4 +1,4 @@
-package com.example.javaalgorithm;
+package com.example.algorithm;
 
 public class Taxi0601 {
     public static void main(String[] args) {
