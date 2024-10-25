@@ -23,7 +23,7 @@ public class Main {
             }
         }
 
-        System.out.print(sum+" "+Math.floor((avg/3)*10)/10);
+        System.out.print(sum+" "+Math.round((avg/3)*100)/100.0);
     
     }
 }
