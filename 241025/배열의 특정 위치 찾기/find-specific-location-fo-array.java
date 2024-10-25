@@ -11,7 +11,7 @@ public class Main {
 
         int sum =0;
 
-        int avg = 0;
+        double avg = 0;
 
         for(int i=1; i<=10; i++){
             int value = Integer.parseInt(st.nextToken());
