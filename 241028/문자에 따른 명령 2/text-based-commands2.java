@@ -18,11 +18,12 @@ public class Main {
         String str = st.nextToken();
         char[] moveArr = str.toCharArray();
 
+        int dirX = 0;
+        int dirY = 0;
+
         for(int i=0; i<moveArr.length; i++){
 
             int dirNum = convertDir(initdir, initX,initY, moveArr[i]);
-            int dirX = 0;
-            int dirY = 0;
 
             if(dirNum<4){
                 dirX = dx[dirNum];
