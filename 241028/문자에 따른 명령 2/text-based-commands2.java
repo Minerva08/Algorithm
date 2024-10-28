@@ -12,26 +12,40 @@ public class Main {
         int[] dy = {0,-1,0,1};
 
         int initX = 0;
-        int initY=0;
+        int initY = 0;
         int initdir = 3;
         
-        int dirNum = convertDir(initdir,st.nextToken());
-        
-        
-        initX = dx[dirNum];
-        initY = dy[dirNum];
-        System.out.print(initX+" "+initY); 
-        
+        String str = st.nextToken();
+        char[] moveArr = str.toCharArray();
+
+        for(int i=0; i<moveArr.length; i++){
+
+            int dirNum = convertDir(initdir, initX,initY, moveArr[i]);
+            if(dirNum<4){
+                initX = dx[dirNum];
+                initY = dy[dirNum];
+            }else{
+                initX*=1;
+                initY*=1;
+            }
+            
+        } 
+        System.out.print(initX+" "+initY);
 
     }
 
-    public static int convertDir(int initdir, String dir){
+    public static int convertDir(int initdir, int initX, int initY,char moveDir){
         
-        if(dir.equals("LF")) {
+        if(moveDir=='L') {
             return (initdir==0)?3:(initdir-1);
         }
-        return (initdir==3)?0:(initdir+1);
+        if(moveDir=='R'){
+            return (initdir==3)?0:(initdir+1);
 
+        }
+        
+        return 4;
+        
 
     }
 }
