@@ -21,14 +21,17 @@ public class Main {
         for(int i=0; i<moveArr.length; i++){
 
             int dirNum = convertDir(initdir, initX,initY, moveArr[i]);
+            int dirX = 0;
+            int dirY = 0;
+
             if(dirNum<4){
-                initX = dx[dirNum];
-                initY = dy[dirNum];
+                dirX = dx[dirNum];
+                dirY = dy[dirNum];
             }else{
-                initX*=1;
-                initY*=1;
+                initX = dirX*1;
+                initY = dirY*1;
             }
-            
+            initdir = dirNum;
         } 
         System.out.print(initX+" "+initY);
 
