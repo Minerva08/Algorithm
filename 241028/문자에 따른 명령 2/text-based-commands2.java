@@ -5,51 +5,41 @@ public class Main {
     public static void main(String[] args)throws IOException {
         // 여기에 코드를 작성해주세요.
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int[] dx = {1,0,-1,0};
-        int[] dy = {0,-1,0,1};
+    int initX=0 ;
+    int initY=0;
+    int initDirNum = 3;
+    int[] dx = new int[]{1,0,-1,0};
+    int[] dy = new int[]{0,-1,0,1};
 
-        int initX = 0;
-        int initY = 0;
-        int initdir = 3;
-        
-        String str = st.nextToken();
-        char[] moveArr = str.toCharArray();
+    String str = st.nextToken();
 
-        int dirX = 0;
-        int dirY = 0;
+    char[] moveArr = str.toCharArray();
 
-        for(int i=0; i<moveArr.length; i++){
+    for(int i=0; i<moveArr.length; i++){
+        int dirNum = initDirNum;
 
-            int dirNum = convertDir(initdir, initX,initY, moveArr[i]);
+        if(moveArr[i]=='F'){
+            initX += dx[dirNum];
+            initY += dy[dirNum];
 
-            if(dirNum<4){
-                dirX = dx[dirNum];
-                dirY = dy[dirNum];
-            }else{
-                initX = dirX*1;
-                initY = dirY*1;
+        }else{
+            if(moveArr[i]=='R'){
+                dirNum = (dirNum+1)%4;
             }
-            initdir = dirNum;
-        } 
-        System.out.print(initX+" "+initY);
+            if(moveArr[i]=='L'){
+                dirNum = (dirNum-1+4)%4;
+            }
+
+            initDirNum = dirNum;
+        }
 
     }
 
-    public static int convertDir(int initdir, int initX, int initY,char moveDir){
-        
-        if(moveDir=='L') {
-            return (initdir==0)?3:(initdir-1);
-        }
-        if(moveDir=='R'){
-            return (initdir==3)?0:(initdir+1);
-
-        }
-        
-        return 4;
-        
-
+    System.out.print(initX+" "+initY);
+    
     }
+
 }
