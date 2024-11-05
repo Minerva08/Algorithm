@@ -11,9 +11,11 @@ public class BinaryNumber {
 
         int size = Integer.parseInt(st.nextToken());
         int value=0;
+
         for(int i=0; i<size; i++){
              value += (int) Math.pow(2,i);
         }
+
         for(int i=1; i<=value;i++){
             String str = "";
             str = binary(i, str);
@@ -21,6 +23,7 @@ public class BinaryNumber {
             StringBuffer sb = new StringBuffer(str);
             int reverse = Integer.parseInt(sb.reverse().toString());
             String result = String.format("%0" + size + "d", reverse);
+
             if(!result.contains("00")){
                 System.out.println("result: "+ String.format("%0"+size+"d", reverse));
 

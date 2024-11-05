@@ -1,8 +1,8 @@
-package com.example.algorithm.graph;
+package com.example.algorithm.DFS;
 
 import java.util.*;
 
-public class DFS {
+public class BJN_virus {
 
     static boolean[] visited;
     static int answer=0;
