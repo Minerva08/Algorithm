@@ -28,7 +28,6 @@ public class BJN_2573 {
     static int width;
     static int height;
 
-    static int iceGroup=0;
 
     static Queue<IceBugNode> bfsQueue;
     public static void main(String[] args) throws IOException {
@@ -52,8 +51,8 @@ public class BJN_2573 {
         }
 
 
-        iceGroup=0;
-        while(iceGroup<=1){
+        while(true){
+
             int count =0;
             melted =new int[height][width];
             visited = new int[height][width];
@@ -68,7 +67,7 @@ public class BJN_2573 {
                     if(graph[i][j]>0 && visited[i][j]==0){
 
                         bfs(i, j);
-                        iceGroup++;
+                        count++;
                     }
 
                 }
