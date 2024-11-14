@@ -1,8 +1,23 @@
-package com.example.algorithm.graph;
+package com.example.algorithm.graph.dijkstra;
 
 import java.util.*;
 
 public class Dijkstra {
+
+    static class Node implements Comparable<Node>{
+        int index;
+        int cost;
+
+        public Node(int index, int cost){
+            this.index = index;
+            this.cost=cost;
+        }
+
+        @Override
+        public int compareTo(Node node){
+            return Integer.compare(this.cost,node.cost);
+        }
+    }
 
     public static void main(String[] arg){
         int[][] road = {{1,4,2},{1,2,1},{2,3,3},{5,2,2},{5,3,1},{5,4,1}};
@@ -13,21 +28,6 @@ public class Dijkstra {
 
     public static int solution(int N, int[][] road, int K) {
         int answer=0;
-
-         class Node implements Comparable<Node>{
-            int index;
-            int cost;
-
-            public Node(int index, int cost){
-                this.index = index;
-                this.cost=cost;
-            }
-
-            @Override
-            public int compareTo(Node node){
-                return Integer.compare(this.cost,node.cost);
-            }
-        }
 
         ArrayList<Node>[] graph = new ArrayList[N+1];
         for (int i = 0; i <= N; i++) {
