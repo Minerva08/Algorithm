@@ -1,9 +1,7 @@
-package com.example.algorithm.DFS;
+package com.example.algorithm.graph.DFS;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
 public class BJN_2644 {
     static int[] visited;
@@ -11,7 +9,7 @@ public class BJN_2644 {
     static int node = 0;
     static int startNode = 0;
     static int endNode = 0;
-    static int[][] graph ;
+    static ArrayList<ArrayList<Integer>> graph ;
     static int step = -1;
 
 
@@ -30,17 +28,24 @@ public class BJN_2644 {
         st = new StringTokenizer(br.readLine());
         edge = Integer.parseInt(st.nextToken());
 
-        graph = new int[node+1][node+1];
         visited = new int[node+1];
 
+        graph = new ArrayList<>(edge + 1);
+        for (int i = 0; i <= edge; i++) {
+            graph.add(new ArrayList<>());
+        }
 
+
+        //그래프 초기화 + 추가
         for(int i=0; i<edge; i++){
+            graph.add(new ArrayList<>());
+
             st = new StringTokenizer(br.readLine());
 
             int node1 = Integer.parseInt(st.nextToken());
             int node2 = Integer.parseInt(st.nextToken());
-            graph[node1][node2] = 1;
-            graph[node2][node1] = 1;
+            graph.get(node1).add(node2);
+            graph.get(node2).add(node1);
 
         }
 
@@ -61,13 +66,12 @@ public class BJN_2644 {
             return;
         }
 
-        for(int j=0; j<graph[node].length;j++){
-            if(graph[node][j]==1 && visited[j]!=1){
-                System.out.println("for: "+node+" , "+j);
-                dfs(j,chone+1);
+        for(int j : graph.get(node)){
+            if(visited[j]==0){
+                dfs(j,chone);
             }
-
         }
+        System.out.println("END - "+node);
     }
 
 }
