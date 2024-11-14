@@ -1,4 +1,4 @@
-package com.example.algorithm.DFS;
+package com.example.algorithm.graph.DFS;
 
 import java.util.*;
 
