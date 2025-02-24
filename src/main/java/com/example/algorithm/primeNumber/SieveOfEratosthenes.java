@@ -8,6 +8,16 @@ import java.util.StringTokenizer;
 
 public class SieveOfEratosthenes {
 
+    /**
+     *
+     * 소수 판별 알고리즘
+     *
+     * 에라토스테네스의 체
+     *
+     *
+     *
+     * */
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
