@@ -1,4 +1,4 @@
-package com.example.algorithm.graph.DFS;
+package com.example.algorithm.graph.DFS.backtracking;
 
 import java.util.*;
 
