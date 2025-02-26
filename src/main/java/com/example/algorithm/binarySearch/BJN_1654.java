@@ -13,11 +13,11 @@ public class BJN_1654 {
      *      2-1. 제일 짧은 랜선 길이
      *      2-2. 이진탐색
      *          left = 0
-     *          right = 제일 짧은 랜선 길이
+     *          right = 제일 짧은 랜선 길이 XXX -> 최대 랜선 길이
      *          result
      *          while( left<=right){
      *              int mid = (left  + right) /2
-     *              int cnt
+     *              long cnt
      *              for(기존 랜선){
      *                  cnt+=랜선/mid
      *              }
