@@ -1,4 +1,4 @@
-package com.example.test.hyundai.dfs;
+package com.example.algorithm.test.hyundai.dfs;
 
 import java.io.BufferedReader;
 import java.io.IOException;

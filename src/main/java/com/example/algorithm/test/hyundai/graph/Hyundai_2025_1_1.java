@@ -1,4 +1,4 @@
-package com.example.test.hyundai.graph;
+package com.example.algorithm.test.hyundai.graph;
 
 import java.io.*;
 import java.util.ArrayList;
