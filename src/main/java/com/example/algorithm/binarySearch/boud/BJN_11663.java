@@ -1,4 +1,4 @@
-package com.example.algorithm.binarySearch;
+package com.example.algorithm.binarySearch.boud;
 
 import java.util.*;
 import java.io.*;
@@ -16,65 +16,63 @@ public class BJN_11663 {
      *      2-1. 점 배열 생성 -> 정렬(오름차순)
      *      2-2. 선분 배열 int[][] -> [시작점, 종료점]
      *      2-3. for( 선분 배열)
+     *           start = 선분 시작
+     *           end = 선분 종료
      *
-     *           int boundIndex(target,1(상한선)/0(하한선)) -> while(left<=right) target = 시작점
-     *
-     *           if(mid<target){
-     *
-     *              right = mid-1;
-     *
-     *           }else if(mid> target{
-     *               left = mid+1;
-     *           }else{
-     *               bottom = mid
-     *           }
-     *
-     *
+     *           상한 위치 = 상한(start,arr)
+     *                    start 이상의 최소값
+     *           하한 위치 = 하한(end,arr)
+     *                    end 초과의 최소값
      *
      * 3. 출력
-     *      범위내 점 개수
+     *      범위내 점 개수 = (상한 위치 - 하한 위치)
      * */
     static int N;
     static int[] pointArr;
 
+    public static class Line{
+
+        long start;
+        long end;
+
+        public Line(long start, long end){
+            this.start = start;
+            this.end = end;
+        }
+    }
 
 
     public static void main(String[] args) throws IOException {
-        BufferedReader  br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st =    new StringTokenizer(br.readLine());
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        N= Integer.parseInt(st.nextToken());
+        N = Integer.parseInt(st.nextToken());
         pointArr = new int[N];
         int M = Integer.parseInt(st.nextToken());
-        long[][] lineArr = new long[M][2];
+        Line[] lineArr = new Line[M];
 
         st = new StringTokenizer(br.readLine());
 
-        for(int i = 0; i < N; i++)  {
-            pointArr[i]= Integer.parseInt(st.nextToken());
+        for (int i = 0; i < N; i++) {
+            pointArr[i] = Integer.parseInt(st.nextToken());
         }
-        for(int i = 0; i < M; i++) {
+        for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
             long start = Long.parseLong(st.nextToken());
             long end = Long.parseLong(st.nextToken());
-            lineArr[i][0] = start;
-            lineArr[i][1] = end;
+            lineArr[i] = new Line(start, end);
         }
 
         Arrays.sort(pointArr);
 
+        for(int i=0; i<M;i++){
+            long start = lineArr[i].start;
+            long end = lineArr[i].end;
 
-        for(int i=0; i<M; i++){
+            long lowerIdx = bottomBound(start);
+            long upperIdx = topBound(end);
 
-            long start = lineArr[i][0];
-            long end = lineArr[i][1];
-
-            Integer startIdx = bottomBound(start);
-            Integer endIdx = topBound(end);
-
-            System.out.println((endIdx-startIdx)+1);
-
-
+            System.out.println((upperIdx-lowerIdx)+1);
         }
 
     }
