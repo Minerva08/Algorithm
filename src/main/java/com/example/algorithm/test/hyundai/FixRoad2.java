@@ -1,4 +1,4 @@
-package com.example.test.hyundai;
+package com.example.algorithm.test.hyundai;
 
 
 public class FixRoad2 {
